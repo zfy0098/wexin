@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginDB  extends DBBase{
 
-	public List<Map<String,Object>> userList(){
+	public List<Map<String,Object>> userList(String id){
 		System.err.println("查询数据库");
 		
 		try {
@@ -17,7 +17,7 @@ public class LoginDB  extends DBBase{
 			e.printStackTrace();
 		} 
 		
-		String sql = "select * from tab_loginuser";
-		return jdbcTemplate.queryForList(sql);
+		String sql = "select * from tab_loginuser where id=?";
+		return jdbcTemplate.queryForList(sql , new Object[]{id});
 	}
 }

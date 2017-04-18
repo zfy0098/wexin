@@ -9,6 +9,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ *   c3p0  配置bean
+ * @author a
+ *
+ */
+
 @Configuration
 public class ConfigC3P0 {
 	@Value("${c3p0.datasource.driver-class-name}")

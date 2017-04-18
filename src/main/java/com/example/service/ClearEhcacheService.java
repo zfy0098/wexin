@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class ClearEhcacheService {
 
 	
-	@CacheEvict(allEntries = true)
+	@CacheEvict(value = "sampleCache2" , allEntries = true)
 	public void clear(){
 		 System.out.println("删除缓存");
 	}

@@ -10,14 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.example.db.LoginDB;
 
+@CacheConfig(cacheNames = "sampleCache2")
 @Service
 public class LoginService  {
 
 	@Autowired
 	private LoginDB loginDB;
 	 
-	@Cacheable
-	public List<Map<String,Object>> userList(){
-		return loginDB.userList();
+	@Cacheable(key = "#id")
+	public List<Map<String,Object>> userList(String id){
+		return loginDB.userList(id);
 	}
 }
